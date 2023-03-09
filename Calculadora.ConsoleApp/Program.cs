@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             do
-            { //comandos do C#, estrutura de repetição, do-while
+            { 
 
                 #region Menu
                 Console.Clear();
@@ -48,22 +48,7 @@
                         int resultadoMultiplicacao = tabuada * i;
                         
                         Console.WriteLine(tabuada + " x " + i + " = " + resultadoMultiplicacao );
-                    }
-
-                    #region montando a tabuada com "While"
-                    //int numero = 1;
-
-                    //while (numero <= 10)
-                    //{
-                    //    int resultadoMultiplicacao = tabuada * numero;
-
-                    //    Console.WriteLine( tabuada + " x " + numero + " = " + 
-                    //        resultadoMultiplicacao );
-
-                    //    //incremento
-                    //    numero = numero + 1;
-                    //}
-                    #endregion
+                    }                  
 
                     Console.ReadLine();
                     continue;
@@ -106,44 +91,6 @@
                     default:
                         break;
                 }
-
-                #region verifica o tipo de operação utilizando "if-else if"
-                //bool ehAdicao = operacao == "1";
-                //bool ehSubtracao = operacao == "2";
-                //bool ehMultiplicacao = operacao == "3";
-                //bool ehDivisao = operacao == "4";
-
-                //if (ehAdicao) //comandos do C#, estrutura de decisão, if-else, if, if-elseif, switch
-                //{
-                //    resultado = primeiroNumero + segundoNumero;
-                //}
-
-                //else if (ehSubtracao)
-                //{
-                //    resultado = primeiroNumero - segundoNumero;
-                //}
-
-                //else if (ehMultiplicacao)
-                //{
-                //    resultado = primeiroNumero * segundoNumero;
-                //}
-
-                //else if (ehDivisao)
-                //{
-                //    while (segundoNumero == 0)
-                //    {
-                //        Console.WriteLine("Segundo número não pode ser ZERO, tente novamente");
-
-                //        Console.ReadLine();
-
-                //        Console.Write("Digite o segundo número: ");
-
-                //        segundoNumero = Convert.ToInt32(Console.ReadLine());
-                //    }
-
-                //    resultado = primeiroNumero / segundoNumero;
-                //}
-                #endregion
 
                 decimal resultadoFormatado = Math.Round(resultado, 2);
 
