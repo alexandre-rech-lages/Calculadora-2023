@@ -1,4 +1,22 @@
-﻿namespace Calculadora.ConsoleApp
+﻿//Requisito 01
+//Nossa calculadora deve ter a possibilidade de somar dois números [v]
+
+//Requisito 02
+//Nossa calculadora deve ter a possibilidade fazer várias operações de soma [v]
+
+//Requisito 03
+//Nossa calculadora deve ter a possibilidade fazer várias operações de soma e de subtração [v]
+
+//Requisito 04
+//Nossa calculadora deve ter a possibilidade fazer as quatro operações básicas da matemática [v]
+
+//Requisito 05
+//Nossa calculadora deve realizar as operações com "0" [v]
+
+//Requisito 06
+//Nossa calculadora deve validar a opções do menu [v]
+
+namespace Calculadora.ConsoleApp
 {
     internal class Program
     {
