@@ -5,9 +5,7 @@
         static void Main(string[] args)
         {
             do
-            { 
-
-                #region Menu
+            {                 
                 Console.Clear();
 
                 Console.WriteLine("Calculadora Top 2023");
@@ -18,9 +16,7 @@
                 Console.WriteLine("Digite 4 para Dividir");
                 Console.WriteLine("Digite 5 para Gerar Tabuada");
 
-                Console.WriteLine("Digite S para sair");
-
-                #endregion
+                Console.WriteLine("Digite S para sair");              
 
                 string operacao = Console.ReadLine();
 
