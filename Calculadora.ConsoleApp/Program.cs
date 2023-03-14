@@ -20,7 +20,17 @@
 //Nossa calculadora deve realizar as operações com números com duas casas decimais [v]
 
 //Requisito 08
-//Nossa calculadora deve gerar a tabuada de multiplicação para um determinado número [v]
+//Nossa calculadora deve gerar a tabuada de multiplicação para um determinado número e apresentar numa visualização "rubro-negra" [v]
+
+//Requisito 09
+
+/** Nossa calculadora deve permitir visualizar as operações já realizadas [v]
+ * 
+ *  Critérios:
+ *      1 - A descrição da operação realizada deve aparecer assim, exemplo:
+ *          2 + 2 = 4
+ *          10 - 5 = 5
+ */
 
 namespace Calculadora.ConsoleApp
 {
@@ -28,8 +38,18 @@ namespace Calculadora.ConsoleApp
     {
         static void Main(string[] args)
         {
+            /*
+             * tipos de variaveis que aprendemos
+             * string, string[], int, int[], decimal, decimal[], bool, bool[], double, double[], char, char[]
+             */
+
+            string[] descricoesOperacao = new string[100]; //declaração e inicialização de arrays
+
+            int quantidadeOperacoesRealizadas = 0;
+
             do
-            {                 
+            {
+
                 Console.Clear();
 
                 Console.WriteLine("Calculadora Top 2023");
@@ -39,8 +59,9 @@ namespace Calculadora.ConsoleApp
                 Console.WriteLine("Digite 3 para Multiplicar");
                 Console.WriteLine("Digite 4 para Dividir");
                 Console.WriteLine("Digite 5 para Gerar Tabuada");
+                Console.WriteLine("Digite 6 para Visualizar as operações realizadas");
 
-                Console.WriteLine("Digite S para sair");              
+                Console.WriteLine("Digite S para sair");
 
                 string operacao = Console.ReadLine();
 
@@ -49,7 +70,7 @@ namespace Calculadora.ConsoleApp
                     break;
                 }
 
-                if (operacao != "1" && operacao != "2" && operacao != "3" && operacao != "4" && operacao != "5" 
+                if (operacao != "1" && operacao != "2" && operacao != "3" && operacao != "4" && operacao != "5" && operacao != "6"
                     && operacao != "S" && operacao != "s")
                 {
                     Console.WriteLine("Operacao inválida, tente novamente...");
@@ -65,12 +86,34 @@ namespace Calculadora.ConsoleApp
 
                     for (int i = 1; i <= 10; i++) //i = i + 1 
                     {
+                        int resto = i % 2;
+                        if (resto == 0)
+                            Console.BackgroundColor = ConsoleColor.Red;
+                        else
+                            Console.BackgroundColor = ConsoleColor.Black;
+
                         int resultadoMultiplicacao = tabuada * i;
-                        
-                        Console.WriteLine(tabuada + " x " + i + " = " + resultadoMultiplicacao );
-                    }                  
+
+                        Console.WriteLine(tabuada + " x " + i + " = " + resultadoMultiplicacao);
+                    }
 
                     Console.ReadLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    continue;
+                }
+
+                if (operacao == "6")
+                {
+                    //visualizar as operações
+
+                    for (int i = 0; i < descricoesOperacao.Length; i++) //quantidadeOperacoesRealizadas
+                    {
+                        if (descricoesOperacao[i] != null)
+                            Console.WriteLine(descricoesOperacao[i]);                        
+                    }
+
+                    Console.ReadLine();
+
                     continue;
                 }
 
@@ -91,7 +134,7 @@ namespace Calculadora.ConsoleApp
                     case "1": resultado = primeiroNumero + segundoNumero; break;
                     case "2": resultado = primeiroNumero - segundoNumero; break;
                     case "3": resultado = primeiroNumero * segundoNumero; break;
-                    case "4": 
+                    case "4":
                         {
                             while (segundoNumero == 0)
                             {
@@ -104,8 +147,8 @@ namespace Calculadora.ConsoleApp
                                 segundoNumero = Convert.ToInt32(Console.ReadLine());
                             }
 
-                            resultado = primeiroNumero / segundoNumero; 
-                            break; 
+                            resultado = primeiroNumero / segundoNumero;
+                            break;
                         }
 
                     default:
@@ -114,9 +157,26 @@ namespace Calculadora.ConsoleApp
 
                 decimal resultadoFormatado = Math.Round(resultado, 2);
 
+                string sinalOperacao = "";
+
+                switch (operacao)
+                {
+                    case "1": sinalOperacao = "+"; break;
+                    case "2": sinalOperacao = "-" ; break;
+                    case "3": sinalOperacao = "*"; break;
+                    case "4": sinalOperacao = "/"; break;
+
+                    default:
+                        break;
+                }
+
+                descricoesOperacao[quantidadeOperacoesRealizadas] = primeiroNumero + " " + sinalOperacao + " " + segundoNumero + " = " + resultadoFormatado;
+
                 Console.WriteLine("O resultado da operação é: " + resultadoFormatado); //concatenar                
 
                 Console.ReadLine();
+
+                quantidadeOperacoesRealizadas++;
 
             } while (true);
         }
